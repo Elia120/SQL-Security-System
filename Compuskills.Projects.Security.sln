@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compuskills.Projects.Security.Cli", "Compuskills.Projects.Security.Cli\Compuskills.Projects.Security.Cli.csproj", "{FD6B1324-23C2-4448-926C-CC5C6B604A5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compuskills.Projects.Security.Domain", "Compuskills.Projects.Security.Domain\Compuskills.Projects.Security.Domain.csproj", "{3C646DFB-247B-4CED-A220-8F54993587A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD6B1324-23C2-4448-926C-CC5C6B604A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6B1324-23C2-4448-926C-CC5C6B604A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6B1324-23C2-4448-926C-CC5C6B604A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6B1324-23C2-4448-926C-CC5C6B604A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C646DFB-247B-4CED-A220-8F54993587A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C646DFB-247B-4CED-A220-8F54993587A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C646DFB-247B-4CED-A220-8F54993587A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C646DFB-247B-4CED-A220-8F54993587A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2619A992-0764-4D42-9427-ADE22E5480F7}
+	EndGlobalSection
+EndGlobal
