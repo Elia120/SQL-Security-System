@@ -21,6 +21,8 @@ namespace Compuskills.Projects.Security.Domain.Models
     {
         public int CredentialID { get; set; }
 
-        public int CredentialTypeID { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<DoorsCredential> DoorsCredentials { get; set; }
+        public virtual ICollection<UsersCredential> UsersCredentials { get; set; }
     }
 }
