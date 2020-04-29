@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSource\SecurityContext.cs" />
+    <Compile Include="DataSource\SecurityInitializer.cs" />
     <Compile Include="Models\Credential.cs" />
     <Compile Include="Models\AuthorizationAttempt.cs" />
     <Compile Include="Models\Door.cs" />

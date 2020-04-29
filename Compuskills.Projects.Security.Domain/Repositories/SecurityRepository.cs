@@ -7,6 +7,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
 {
     public class SecurityRepository
     {
+        public int MyProperty { get; set; }
         /// <summary>
         /// Add a new credential to the system.  A credential is a PROOF OF IDENTITY.  It does not
         /// authorize the holder to do anything by itself.  You must use the GrantAccess and
