@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Compuskills.Projects.Security.Domain.DataSource;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,15 @@ namespace Compuskills.Projects.Security
     {
         static void Main(string[] args)
         {
+            using (var db = new SecurityContext())
+            {
+                foreach (var user in db.Users)
+                {
+                    Console.WriteLine(user.FirstName+"   "+user.LastName + "   " + user.DOB);
+                }
+                
+                Console.ReadLine();
+            }
         }
     }
 }

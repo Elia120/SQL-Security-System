@@ -8,7 +8,7 @@ namespace Compuskills.Projects.Security.Domain.Models
 {
     public class User
     {
-        public int UsersID { get; set; }
+        public int UserID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public DateTime DOB { get; set; }

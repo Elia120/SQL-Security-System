@@ -10,6 +10,10 @@ namespace Compuskills.Projects.Security.Domain.DataSource
 {
     public class SecurityContext : DbContext
     {
+        public SecurityContext() : base("SecurityDB")
+        {
+            Database.SetInitializer(new SecurityInitializer());
+        }
         public DbSet<Door> Doors { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<AuthorizationAttempt> AuthorizationAttempts { get; set; }

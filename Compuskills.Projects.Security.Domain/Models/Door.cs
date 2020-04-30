@@ -8,7 +8,7 @@ namespace Compuskills.Projects.Security.Domain.Models
 {
     public class Door
     {
-        public int DoorsID { get; set; }
+        public int DoorID { get; set; }
         public string Name { get; set; }
         public virtual ICollection<DoorsCredential> DoorsCredentials { get; set; }
         public virtual ICollection<AuthorizationAttempt> AuthorizationAttempts { get; set; }
