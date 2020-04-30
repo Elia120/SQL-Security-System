@@ -30,6 +30,8 @@ namespace Compuskills.Projects.Security.Domain.DataSource
             ctx.Doors.Add(new Door { Name = "Office" });
             ctx.Doors.Add(new Door { Name = "EmergencyExit" });
 
+            ctx.SaveChanges();
+
             int UserCount = ctx.Users.Count();
             for (int i = 0; i < UserCount; i++)
             {
@@ -39,12 +41,19 @@ namespace Compuskills.Projects.Security.Domain.DataSource
             }
 
             int DoorCount = ctx.Doors.Count();
-            Random rnd = new Random(15);
+            Random rnd = new Random(14);
             for (int i = 0; i < DoorCount; i++)
             {
+                List<int> temp = new List<int>();
                 for (int j = 0; j < rnd.Next(1,4); j++)
                 {
-                    ctx.DoorsCredentials.Add(new DoorsCredential { CredentialID = rnd.Next(1, 4), DoorsID = i + 1 });
+                    int now = rnd.Next(1, 4);
+                    while (temp.Contains(now))
+                    {
+                        now = rnd.Next(1, 4);
+                    }
+                    temp.Add(now);
+                    ctx.DoorsCredentials.Add(new DoorsCredential { CredentialID = now, DoorsID = i + 1 });
                 }
             }
 
