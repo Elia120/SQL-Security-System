@@ -17,7 +17,7 @@ namespace Compuskills.Projects.Security.Domain.Models
         public DateTime AttemptDate { get; set; }
         public int DoorID { get; set; }
         public virtual Door Door { get; set; }
-        public int? UsersID { get; set; }
+        public int? UserID { get; set; }
 
         public virtual User User { get; set; }
         public virtual ICollection<Credential> Credentials { get; set; }

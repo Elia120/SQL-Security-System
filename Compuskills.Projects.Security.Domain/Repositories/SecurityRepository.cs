@@ -1,13 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Compuskills.Projects.Security.Domain.DataSource;
 using Compuskills.Projects.Security.Domain.Models;
 
 namespace Compuskills.Projects.Security.Domain.Repositories
 {
-    public class SecurityRepository
+    public class SecurityRepository : IDisposable
     {
-        public int MyProperty { get; set; }
+
+        private SecurityContext _Db;
+        public SecurityContext Db
+        {
+            get
+            {
+                if (_Db == null)
+                {
+                    _Db = new SecurityContext();
+                }
+                return _Db;
+            }
+        }
+
         /// <summary>
         /// Add a new credential to the system.  A credential is a PROOF OF IDENTITY.  It does not
         /// authorize the holder to do anything by itself.  You must use the GrantAccess and
@@ -28,7 +42,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
         /// <returns>Attempts</returns>
         public IQueryable<AuthorizationAttempt> GetActivity(DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            return Db.AuthorizationAttempts.Where(x => x.AttemptDate > from && x.AttemptDate < to);
         }
 
         /// <summary>
@@ -40,7 +54,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
         /// <returns></returns>
         public IQueryable<AuthorizationAttempt> GetDoorActivity(DateTime from, DateTime to, int doorId)
         {
-            throw new NotImplementedException();
+            return GetActivity(from, to).Where(x => x.DoorID == doorId);
         }
 
         /// <summary>
@@ -52,7 +66,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
         /// <returns></returns>
         public IQueryable<AuthorizationAttempt> GetSuspiciousActivity(DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            return GetActivity(from,to).Where(e1=> e1.Result==false && !GetActivity(e1.AttemptDate,e1.AttemptDate.AddMinutes(2d)).Any(e2 => e2.Result == true));
         }
 
         /// <summary>
@@ -107,6 +121,10 @@ namespace Compuskills.Projects.Security.Domain.Repositories
         public void RevokeAccess(int doorId, Credential credential)
         {
             throw new NotImplementedException();
+        }
+        public void Dispose()
+        {
+            if (_Db != null) _Db.Dispose();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Compuskills.Projects.Security.Domain.DataSource;
+using Compuskills.Projects.Security.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ namespace Compuskills.Projects.Security
     {
         static void Main(string[] args)
         {
-            using (var db = new SecurityContext())
+            using (var sr = new SecurityRepository())
             {
-                foreach (var user in db.Users)
+                foreach (var a in sr.GetSuspiciousActivity(new DateTime(2020,05,05), new DateTime(2020, 05, 06)).ToList())
                 {
-                    Console.WriteLine(user.FirstName+"   "+user.LastName + "   " + user.DOB);
+                    Console.WriteLine(a.Result+"    " + a.User.FirstName+"    "+a.User.LastName + "    " +a.Door.Name);
                 }
                 
                 Console.ReadLine();

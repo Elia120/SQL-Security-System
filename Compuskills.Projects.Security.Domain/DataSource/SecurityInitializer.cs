@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Compuskills.Projects.Security.Domain.DataSource
 {
-    public class SecurityInitializer : DropCreateDatabaseAlways<SecurityContext>
+    public class SecurityInitializer : DropCreateDatabaseIfModelChanges<SecurityContext>
     {
         protected override void Seed(SecurityContext ctx)
         {
@@ -55,6 +55,11 @@ namespace Compuskills.Projects.Security.Domain.DataSource
                     temp.Add(now);
                     ctx.DoorsCredentials.Add(new DoorsCredential { CredentialID = now, DoorsID = i + 1 });
                 }
+            }
+
+            for (int i = 0; i < 1000; i++)
+            {
+                ctx.AuthorizationAttempts.Add(new AuthorizationAttempt { DoorID = rnd.Next(1, DoorCount), UserID = rnd.Next(1, UserCount), Result = rnd.Next(0, 2) == 0 ? false : true, AttemptDate = new DateTime(2020, 05, 05, rnd.Next(24), rnd.Next(60), rnd.Next(60)) });
             }
 
             ctx.SaveChanges();
