@@ -69,7 +69,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
         /// <returns></returns>
         public IQueryable<AuthorizationAttempt> GetSuspiciousActivity(DateTime from, DateTime to)
         {
-            return GetActivity(from,to).Where(e1=> e1.Result==false && Db.AuthorizationAttempts.Where(x => x.AttemptDate > e1.AttemptDate && x.DoorID==e1.DoorID && x.AttemptDate < DbFunctions.AddMinutes(e1.AttemptDate,2)).Count()>=1);
+            return GetActivity(from,to).Where(e1=> e1.Result==false && !Db.AuthorizationAttempts.Where(x => x.AttemptDate > e1.AttemptDate && x.DoorID==e1.DoorID && x.AttemptDate < DbFunctions.AddMinutes(e1.AttemptDate,2)).Any(e2 => e2.Result == true));
         }
 
         /// <summary>
