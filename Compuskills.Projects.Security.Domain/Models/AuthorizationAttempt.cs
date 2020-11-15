@@ -20,7 +20,7 @@ namespace Compuskills.Projects.Security.Domain.Models
         public int? UserID { get; set; }
 
         public virtual User User { get; set; }
-        public virtual ICollection<Credential> Credentials { get; set; }
+        public virtual ICollection<AuthorizationAttemptCredential> AuthorizationAttemptCredentials { get; set; }
         public bool Result { get; set; }
     }
 }

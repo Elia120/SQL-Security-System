@@ -14,6 +14,6 @@ namespace Compuskills.Projects.Security.Domain.Models
         public DateTime DOB { get; set; }
 
         public virtual ICollection<AuthorizationAttempt> AuthorizationAttempts { get; set; }
-        public virtual ICollection<UsersCredential> UsersCredentials { get; set; }
+        public virtual ICollection<UserCredential> UserCredentials { get; set; }
     }
 }

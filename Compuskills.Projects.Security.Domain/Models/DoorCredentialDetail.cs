@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace Compuskills.Projects.Security.Domain.Models
 {
-    public class UsersCredential
+    public class DoorCredentialDetail
     {
-        public int UsersCredentialID { get; set; }
-        public int UsersID { get; set; }
-        public virtual User User { get; set; }
+        public int DoorCredentialDetailID { get; set; }
         public int CredentialID { get; set; }
-        public virtual Credential Credential { get; set; }
-        public string Value { get; set; }
 
-        
-        
+        public virtual Credential Credential { get; set; }
+        public int DoorCredentialID { get; set; }
+        public virtual DoorCredential DoorCredential { get; set; }
+        public string Value { get; set; }
     }
 }

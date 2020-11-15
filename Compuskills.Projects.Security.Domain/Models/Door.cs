@@ -10,7 +10,7 @@ namespace Compuskills.Projects.Security.Domain.Models
     {
         public int DoorID { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<DoorsCredential> DoorsCredentials { get; set; }
+        public virtual ICollection<DoorCredential> DoorCredentials { get; set; }
         public virtual ICollection<AuthorizationAttempt> AuthorizationAttempts { get; set; }
     }
 }

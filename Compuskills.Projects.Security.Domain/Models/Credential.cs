@@ -20,9 +20,11 @@ namespace Compuskills.Projects.Security.Domain.Models
     public class Credential
     {
         public int CredentialID { get; set; }
-
         public string Name { get; set; }
-        public virtual ICollection<DoorsCredential> DoorsCredentials { get; set; }
-        public virtual ICollection<UsersCredential> UsersCredentials { get; set; }
+        // Defines if the Credential is specific to the person or door.
+        public bool ValueType { get; set; }
+        public virtual ICollection<DoorCredential> DoorCredentials { get; set; }
+        public virtual ICollection<UserCredential> UserCredentials { get; set; }
+        public virtual ICollection<AuthorizationAttemptCredential> AuthorizationAttemptCredentials { get; set; }
     }
 }
