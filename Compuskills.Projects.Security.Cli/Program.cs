@@ -14,8 +14,8 @@ namespace Compuskills.Projects.Security
         {
             using (var sr = new SecurityRepository())
             {
-                Console.WriteLine(sr.GetSuspiciousActivity(new DateTime(2020, 05, 05), new DateTime(2020, 05, 06)).Count()); 
-                foreach (var a in sr.GetSuspiciousActivity(new DateTime(2020,05,05), new DateTime(2020, 05, 06)).Where(x=>x.UserID==1))
+                Console.WriteLine(sr.GetDoorActivity(new DateTime(2020, 04, 04), new DateTime(2020, 06, 06),1).Count()); 
+                foreach (var a in sr.GetSuspiciousActivity(new DateTime(2020,04,04), new DateTime(2020, 06, 06)).Where(x=> x.DoorID==1 && x.UserID==2))
                 {
                     Console.WriteLine(a.Result+"    " + a.User.FirstName+a.User.LastName + "    " +a.Door.Name + "    " +a.AttemptDate + "    " +a.AuthorizationAttemptID);
                 }
