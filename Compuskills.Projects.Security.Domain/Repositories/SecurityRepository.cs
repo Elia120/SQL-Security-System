@@ -108,7 +108,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
         {
             bool Authorized = false;
             int DoorCredentialID = -1;
-            var DoorCredentials =  Db.DoorCredentials.Where(d => d.DoorID == doorId).Include(d => d.DoorCredentialDetails);
+            var DoorCredentials =  Db.DoorCredentials.Where(d => d.DoorID == doorId);
             foreach (var DoorCredential in DoorCredentials)
             {
                 var FoundCredential = false;
@@ -152,7 +152,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
             int? UserId = null;
             foreach (var UserCredential in credentials)
             {
-                if (UserCredential.Credential.ValueType==true)
+                if (Db.Credentials.Find(UserCredential.CredentialID).ValueType==true)
                 {
                     var Cred =Db.DoorCredentials.Find(DoorCredentialID).DoorCredentialDetails.Where(x => x.CredentialID == UserCredential.CredentialID).FirstOrDefault();
                     if (Cred.Value!=UserCredential.Value)
@@ -165,7 +165,7 @@ namespace Compuskills.Projects.Security.Domain.Repositories
                     if (UserId==null)
                     {
                         var UserCredEntries = Db.UserCredentials.Where(x => x.CredentialID == UserCredential.CredentialID && x.Value == UserCredential.Value);
-                        if (UserCredEntries== null)
+                        if (UserCredEntries.Count()<1)
                         {
                             Validated = false;
                         }
